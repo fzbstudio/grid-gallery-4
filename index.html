@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Grid Gallery 4</title>
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <style>
+            /* style.css */
+            /* === CSS GENERAL === */
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            * {
+                font-family: "Inter", helvetica, sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.05rem;
+            }
+
+            /* === BREAKPOINTS === */
+            @media (max-width: 600px) {
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (min-width: 601px) and (max-width: 1200px) {
+                .grid-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (min-width: 1201px) and (max-width: 1800px) {
+                .grid-container {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (min-width: 1801px) {
+                .grid-container {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            /* === CONTAINERS === */
+            .grid-container {
+                width: 100vw;
+                height: auto;
+                display: grid;
+                gap: 0;
+            }
+
+            .INTERN {
+                display: flex;
+                height: auto;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .INTERN img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            .INTERN .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                color: whitesmoke;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 1.2em;
+                font-weight: 500;
+                opacity: 0;
+                text-shadow:
+                    0 0 25px hsla(250, 10%, 10%, 0.6),
+                    0 0 5px hsla(250, 10%, 10%, 0.4);
+            }
+
+            /* === KEYFRAMES ANIMACIÓ === */
+            @keyframes transformar {
+                0% {
+                    opacity: 1;
+                    filter: blur(0);
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.0;
+                    filter: blur(4px);
+                    transform: scale(2.5);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0);
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes overlayFade {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            /* === CLASSES D'ANIMACIÓ === */
+            .INTERN.animate img {
+                animation: transformar 4s ease;
+            }
+
+            .INTERN.animate .overlay {
+                animation: overlayFade 4s ease;
+            }
+
+            /* === COLORS DE FONS === */
+            #imatge-01 { background-color: hsl(210, 55%, 75%); }
+            #imatge-02 { background-color: hsl(208, 55%, 75%); }
+            #imatge-03 { background-color: hsl(312, 55%, 75%); }
+            #imatge-04 { background-color: hsl(139, 55%, 75%); }
+            #imatge-05 { background-color: hsl(196, 55%, 75%); }
+            #imatge-06 { background-color: hsl(44, 55%, 75%); }
+            #imatge-07 { background-color: hsl(14, 55%, 75%); }
+            #imatge-08 { background-color: hsl(206, 55%, 75%); }
+            #imatge-09 { background-color: hsl(90, 55%, 75%); }
+            #imatge-10 { background-color: hsl(189, 55%, 75%); }
+            #imatge-11 { background-color: hsl(110, 55%, 75%); }
+            #imatge-12 { background-color: hsl(120, 55%, 75%); }
+            #imatge-13 { background-color: hsl(58, 55%, 75%); }
+            #imatge-14 { background-color: hsl(140, 55%, 75%); }
+            #imatge-15 { background-color: hsl(150, 55%, 75%); }
+            #imatge-16 { background-color: hsl(56, 55%, 75%); }
+            #imatge-17 { background-color: hsl(344, 55%, 75%); }
+            #imatge-18 { background-color: hsl(90, 55%, 75%); }
+            #imatge-19 { background-color: hsl(60, 55%, 75%); }
+            #imatge-20 { background-color: hsl(104, 55%, 75%); }
+            #imatge-21 { background-color: hsl(337, 55%, 75%); }
+            #imatge-22 { background-color: hsl(238, 55%, 75%); }
+            #imatge-23 { background-color: hsl(203, 55%, 75%); }
+            #imatge-24 { background-color: hsl(35, 55%, 75%); }
+            #imatge-25 { background-color: hsl(208, 55%, 75%); }
+            #imatge-26 { background-color: hsl(260, 55%, 75%); }
+            #imatge-27 { background-color: hsl(335, 55%, 75%); }
+            #imatge-28 { background-color: hsl(280, 55%, 75%); }
+            #imatge-29 { background-color: hsl(290, 55%, 75%); }
+            #imatge-30 { background-color: hsl(346, 55%, 75%); }
+            #imatge-31 { background-color: hsl(310, 55%, 75%); }
+            #imatge-32 { background-color: hsl(23, 55%, 75%); }
+            #imatge-33 { background-color: hsl(30, 55%, 75%); }
+            #imatge-34 { background-color: hsl(213, 55%, 75%); }
+            #imatge-35 { background-color: hsl(263, 55%, 75%); }
+            #imatge-36 { background-color: hsl(243, 55%, 75%); }
+        </style>
+    </head>
+    <body>
+        <div class="EXTERN grid-container">
+            <div id="imatge-01" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/01.jpg"/>
+                <div class="overlay">Basic Yogurt 1995-1998</div>
+            </div>
+            <div id="imatge-02" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/02.jpg"/>
+                <div class="overlay">Pack Redesign 2012</div>
+            </div>
+            <div id="imatge-03" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/03.jpg"/>
+                <div class="overlay">Pack Redesign 2012</div>
+            </div>
+            <div id="imatge-04" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/04.jpg"/>
+                <div class="overlay">Packaging 2010-2015</div>
+            </div>
+            <div id="imatge-05" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/05.jpg"/>
+                <div class="overlay">Greek Yogurt 2016</div>
+            </div>
+            <div id="imatge-06" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/06.jpg"/>
+                <div class="overlay">New Range Flavours 2016</div>
+            </div>
+            <div id="imatge-07" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/07.jpg"/>
+                <div class="overlay">USA Dessert Range 2014</div>
+            </div>
+            <div id="imatge-08" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/08.jpg"/>
+                <div class="overlay">Portugal Range 2017</div>
+            </div>
+            <div id="imatge-09" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/09.jpg"/>
+                <div class="overlay">Dairy Range</div>
+            </div>
+            <div id="imatge-10" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/10.jpg"/>
+                <div class="overlay">Promo 2016</div>
+            </div>
+            <div id="imatge-11" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/11.jpg"/>
+                <div class="overlay">Pack Redesign 2008</div>
+            </div>
+            <div id="imatge-12" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/12.jpg"/>
+                <div class="overlay">Pack Redesign 2008</div>
+            </div>
+            <div id="imatge-13" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/13.jpg"/>
+                <div class="overlay">Advertising Campaign 20103</div>
+            </div>
+            <div id="imatge-14" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/14.jpg"/>
+                <div class="overlay">Advertising Campaign</div>
+            </div>
+            <div id="imatge-15" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/15.jpg"/>
+                <div class="overlay">Pack Redesign 2000 (right)</div>
+            </div>
+            <div id="imatge-16" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/16.jpg"/>
+                <div class="overlay">Corporate Identity 2008</div>
+            </div>
+            <div id="imatge-17" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/17.jpg"/>
+                <div class="overlay">Cured Ham Range</div>
+            </div>
+            <div id="imatge-18" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/18.jpg"/>
+                <div class="overlay">Italian Olive Oil 2015</div>
+            </div>
+            <div id="imatge-19" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/19.jpg"/>
+                <div class="overlay">Dried Soup Range 2010</div>
+            </div>
+            <div id="imatge-20" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/20.jpg"/>
+                <div class="overlay">Advertising Campaign 2010</div>
+            </div>
+            <div id="imatge-21" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/21.jpg"/>
+                <div class="overlay">Pizza Range 2004</div>
+            </div>
+            <div id="imatge-22" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/22.jpg"/>
+                <div class="overlay">Packaging and POS</div>
+            </div>
+            <div id="imatge-23" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/23.jpg"/>
+                <div class="overlay">Diet Bars</div>
+            </div>
+            <div id="imatge-24" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/24.jpg"/>
+                <div class="overlay">Chocolate Range Artwork</div>
+            </div>
+            <div id="imatge-25" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/25.jpg"/>
+                <div class="overlay">Artworking 2020-2021</div>
+            </div>
+            <div id="imatge-26" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/26.jpg"/>
+                <div class="overlay">Broth Soup 2010</div>
+            </div>
+            <div id="imatge-27" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/27.jpg"/>
+                <div class="overlay">Confectionery Artwork</div>
+            </div>
+            <div id="imatge-28" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/28.jpg"/>
+                <div class="overlay">Bottle Label</div>
+            </div>
+            <div id="imatge-29" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/29.jpg"/>
+                <div class="overlay">Ultra Range</div>
+            </div>
+            <div id="imatge-30" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/30.jpg"/>
+                <div class="overlay">Packaging 2020-2021</div>
+            </div>
+            <div id="imatge-31" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/31.jpg"/>
+                <div class="overlay">Artworking 2020-20211</div>
+            </div>
+            <div id="imatge-32" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/32.jpg"/>
+                <div class="overlay">Chocolate Range</div>
+            </div>
+            <div id="imatge-33" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/33.jpg"/>
+                <div class="overlay">Organic Laundry Soap 2019 Artwork</div>
+            </div>
+            <div id="imatge-34" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/34.jpg"/>
+                <div class="overlay">Diet Bars and Smoothies</div>
+            </div>
+            <div id="imatge-35" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/35.jpg"/>
+                <div class="overlay">Brekkies Dog Food 2007</div>
+            </div>
+            <div id="imatge-36" class="INTERN">
+                <img src="https://fzbstudio.github.io/grid-gallery-4/img/36.jpg"/>
+                <div class="overlay">Packaging, POS and Digital Marketing</div>
+            </div>
+        </div>
+
+        <script>
+            // Seleccionem tots els elements .INTERN
+            const items = document.querySelectorAll('.INTERN');
+
+            items.forEach(item => {
+                // Afegim l'event listener per al hover
+                item.addEventListener('mouseenter', function() {
+                    // Afegim la classe d'animació
+                    this.classList.add('animate');
+
+                    // Eliminem la classe després de 10 segons (durada de l'animació)
+                    setTimeout(() => {
+                        this.classList.remove('animate');
+                    }, 10000);
+                });
+            });
+        </script>
+    </body>
+</html>
+<!-- 2025-07-02 09:00 CLD-->
